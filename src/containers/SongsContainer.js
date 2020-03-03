@@ -1,6 +1,7 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import SongList from '../components/SongList.js'
 import SongSelected from '../components/SongSelected'
+import './SongContainer.css'
 
 class SongsContainer extends Component{
     constructor(props) {
@@ -36,11 +37,14 @@ class SongsContainer extends Component{
 
 
         return(
-            <section>
-                <h1>Top 20 songs:</h1>
-                <SongList topSongs={ this.state.topSongs } songSelected={this.songSelected}/>
-                <SongSelected selectedSong={selectedSong} />
-            </section>
+            <Fragment>
+                <h1>Top 20 songs:</h1> 
+                <section>
+                    <SongList topSongs={ this.state.topSongs } songSelected={this.songSelected}/>
+                    <SongSelected selectedSong={selectedSong} />
+                </section>
+            </Fragment>
+            
 
         )
     }

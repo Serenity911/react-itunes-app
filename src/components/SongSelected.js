@@ -7,7 +7,7 @@ function SongSelected (props) {
         <section>
             <article>
                 <img src= 
-                    {props.selectedSong["im:image"][0].label}
+                    {props.selectedSong["im:image"][2].label}
                     /> 
             </article>
         </section>
