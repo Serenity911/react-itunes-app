@@ -5,7 +5,7 @@ function SongList(props) {
 
     const songObjects = props.topSongs.map(song => {
         return(
-            <SongDetail song={song}></SongDetail>
+            <SongDetail key={song.id.attributes["im:id"]} song={song} songSelected={props.songSelected} ></SongDetail>
         )
     })
 

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import SongList from '../components/SongList.js'
+import SongSelected from '../components/SongSelected'
 
 class SongsContainer extends Component{
     constructor(props) {
@@ -8,7 +9,19 @@ class SongsContainer extends Component{
             topSongs: [],
             selectedSong: ''
         }
+        this.songSelected = this.songSelected.bind(this)
+        // this.getSelectedSong = this.getSelectedSong.bind(this)
     }
+
+    songSelected(songID){
+        this.setState({selectedSong: songID})
+    }
+
+    // getSelectedSong(){
+    //     const selectedSong = this.state.topSongs.find(song => 
+    //         {return song.id.attributes["im:id"] === this.state.selectedSong})
+    //         return selectedSong
+    // }
 
     componentDidMount(){
         fetch('https://itunes.apple.com/gb/rss/topsongs/limit=20/json')
@@ -18,10 +31,15 @@ class SongsContainer extends Component{
     }
 
     render(){
+        const selectedSong = this.state.topSongs.find(song => 
+            {return song.id.attributes["im:id"] === this.state.selectedSong})
+
+
         return(
             <section>
                 <h1>Top 20 songs:</h1>
-                <SongList topSongs={ this.state.topSongs }/>
+                <SongList topSongs={ this.state.topSongs } songSelected={this.songSelected}/>
+                <SongSelected selectedSong={selectedSong} />
             </section>
 
         )
