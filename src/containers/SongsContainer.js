@@ -19,7 +19,11 @@ class SongsContainer extends Component{
 
     render(){
         return(
-            <SongList topSongs={ this.state.topSongs }/>
+            <section>
+                <h1>Top 20 songs:</h1>
+                <SongList topSongs={ this.state.topSongs }/>
+            </section>
+
         )
     }
 
