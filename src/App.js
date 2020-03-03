@@ -1,10 +1,11 @@
-import React from 'react';
-import './App.css';
+import React  from 'react';
+import SongsContainer from './containers/SongsContainer.js'
 
 function App() {
-  return (
-    <SongsContainer />
-  );
+ 
+    return (
+      <SongsContainer />
+    )
 }
 
 export default App;
